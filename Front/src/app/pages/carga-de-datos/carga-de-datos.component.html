@@ -1,0 +1,183 @@
+<div class="container">
+  <h1 class="text-center pt-5 display-text">Carga de datos</h1>
+  <h3 class="text-center pt-2 display-text">Puede utilizar los siguientes campos para ingresar productos, vendedores o
+    registrar una venta</h3>
+</div>
+<div class="formulario">
+  <div class="container">
+    <h2>Registro de nuevo vendedor</h2>
+    <div class="row mb-4">
+      <form (ngSubmit)="onSubmitVendedor()" [formGroup]="contactForm">
+        <div class="col">
+
+          <div>
+            <label class="form-label display-text" for="formularioVendedorNombre">Nombre</label><br>
+            <input formControlName="formularioVendedorNombre" name="formularioVendedorNombre"
+              [class.is-invalid]="contactForm.get('formularioVendedorNombre').invalid && contactForm.get('formularioVendedorNombre').touched"
+              type="text" id="formularioVendedorNombre" class="formulario-input bg-light form-control"
+              formControlName="formularioVendedorNombre" required />
+            <div
+              *ngIf="contactForm.get('formularioVendedorNombre')?.touched && contactForm.get('formularioVendedorNombre')?.errors?.['required'] "
+              class="alert alert-danger formulario-error text-center mt-3">*El campo de nombre es obligatorio</div>
+            <div
+              *ngIf="contactForm.get('formularioVendedorNombre')?.touched && contactForm.get('formularioVendedorNombre')?.errors?.['minlength'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de nombre debe contener al menos
+              {{contactForm.get('formularioVendedorNombre')?.errors?.['minlength'].requiredLength}} letras</div>
+          </div>
+
+          <div>
+            <label class="form-label display-text" for="formularioVendedorSueldoBasico">Sueldo básico</label><br>
+            <input formControlName="formularioVendedorSueldoBasico" name="formularioVendedorSueldoBasico"
+              [class.is-invalid]="contactForm.get('formularioVendedorSueldoBasico').invalid && contactForm.get('formularioVendedorSueldoBasico').touched"
+              type="number" id="formularioVendedorSueldoBasico" class="formulario-input bg-light form-control" required
+              formControlName="formularioVendedorSueldoBasico" />
+            <div
+              *ngIf="contactForm.get('formularioVendedorSueldoBasico')?.touched && contactForm.get('formularioVendedorSueldoBasico')?.errors?.['required'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de sueldo es obligatorio</div>
+            <div
+              *ngIf="contactForm.get('formularioVendedorSueldoBasico')?.touched && contactForm.get('formularioVendedorSueldoBasico')?.errors?.['minlength'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de sueldo debe contener al menos
+              {{contactForm.get('formularioVendedorSueldoBasico')?.errors?.['minlength'].requiredLength}} cifras</div>
+          </div>
+
+          <button (click)="onSubmitVendedor()" [swal]="['Hecho!', 'Has registrado un nuevo vendedor', 'success']"
+            [disabled]="contactForm.invalid" type="submit" id="enviarFormulario"
+            class="btn btn-warning btn-block btn-lg mb-4 mt-4">Registrar vendedor</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Registro de nuevo producto</h2>
+    <div class="row mb-4">
+      <form (ngSubmit)="onSubmitProducto()" [formGroup]="contactFormProducto">
+        <div class="col">
+
+          <div>
+            <label class="form-label display-text" for="formularioProductoNombre">Nombre</label><br>
+            <input formControlName="formularioProductoNombre" name="formularioProductoNombre"
+              [class.is-invalid]="contactFormProducto.get('formularioProductoNombre').invalid && contactFormProducto.get('formularioProductoNombre').touched"
+              type="text" id="formularioProductoNombre" class="formulario-input bg-light form-control"
+              formControlName="formularioProductoNombre" required />
+            <div
+              *ngIf="contactFormProducto.get('formularioProductoNombre')?.touched && contactFormProducto.get('formularioProductoNombre')?.errors?.['required'] "
+              class="alert alert-danger formulario-error text-center mt-3">*El campo de nombre es obligatorio</div>
+            <div
+              *ngIf="contactFormProducto.get('formularioProductoNombre')?.touched && contactFormProducto.get('formularioProductoNombre')?.errors?.['minlength'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de nombre debe contener al menos
+              {{contactFormProducto.get('formularioProductoNombre')?.errors?.['minlength'].requiredLength}} letras</div>
+          </div>
+
+          <div>
+            <label class="form-label display-text" for="formularioProductoPrecio">Precio unitario</label><br>
+            <input formControlName="formularioProductoPrecio" name="formularioProductoPrecio"
+              [class.is-invalid]="contactFormProducto.get('formularioProductoPrecio').invalid && contactFormProducto.get('formularioProductoPrecio').touched"
+              type="number" id="formularioProductoPrecio" class="formulario-input bg-light form-control" required
+              formControlName="formularioProductoPrecio" />
+            <div
+              *ngIf="contactFormProducto.get('formularioProductoPrecio')?.touched && contactFormProducto.get('formularioProductoPrecio')?.errors?.['required'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de precio unitario es obligatorio</div>
+            <div
+              *ngIf="contactFormProducto.get('formularioProductoPrecio')?.touched && contactFormProducto.get('formularioProductoPrecio')?.errors?.['minlength'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de precio unitario debe contener al menos
+              {{contactFormProducto.get('formularioProductoPrecio')?.errors?.['minlength'].requiredLength}} cifras</div>
+          </div>
+
+          <div>
+            <label class="form-label display-text" for="formularioProductoCategoria">Categoria</label><br>
+            <input formControlName="formularioProductoCategoria" name="formularioProductoCategoria"
+              [class.is-invalid]="contactFormProducto.get('formularioProductoCategoria').invalid && contactFormProducto.get('formularioProductoCategoria').touched"
+              type="text" id="formularioProductoCategoria" class="formulario-input bg-light form-control" required
+              formControlName="formularioProductoCategoria" />
+            <div
+              *ngIf="contactFormProducto.get('formularioProductoCategoria')?.touched && contactFormProducto.get('formularioProductoCategoria')?.errors?.['required'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de categoria es obligatorio</div>
+            <div
+              *ngIf="contactFormProducto.get('formularioProductoCategoria')?.touched && contactFormProducto.get('formularioProductoCategoria')?.errors?.['minlength'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de categoria debe contener al menos
+              {{contactFormProducto.get('formularioProductoCategoria')?.errors?.['minlength'].requiredLength}} cifras</div>
+          </div>
+
+          <button (click)="onSubmitProducto()" [swal]="['Hecho!', 'Has registrado un nuevo producto!', 'success']"
+            [disabled]="contactFormProducto.invalid" type="submit" id="enviarFormulario"
+            class="btn btn-warning btn-block btn-lg mb-4 mt-4">Registrar producto</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>Registro de nueva venta</h2>
+    <div class="row mb-4">
+      <form (ngSubmit)="onSubmitVenta()" [formGroup]="contactFormVenta">
+        <div class="col">
+
+          <div>
+            <label class="form-label display-text" for="formularioVentaCantidad">Cantidad</label><br>
+            <input formControlName="formularioVentaCantidad" name="formularioVentaCantidad"
+              [class.is-invalid]="contactFormVenta.get('formularioVentaCantidad').invalid && contactFormVenta.get('formularioVentaCantidad').touched"
+              type="number" id="formularioVentaCantidad" class="formulario-input bg-light form-control"
+              formControlName="formularioVentaCantidad" required />
+            <div
+              *ngIf="contactFormVenta.get('formularioVentaCantidad')?.touched && contactFormVenta.get('formularioVentaCantidad')?.errors?.['required'] "
+              class="alert alert-danger formulario-error text-center mt-3">*El campo de cantidad es obligatoria</div>
+            <div
+              *ngIf="contactFormVenta.get('formularioVentaCantidad')?.touched && contactFormVenta.get('formularioVentaCantidad')?.errors?.['minlength'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de cantidad debe contener al menos
+              {{contactFormVenta.get('formularioVentaCantidad')?.errors?.['minlength'].requiredLength}} letras</div>
+          </div>
+
+          <div>
+            <label class="form-label display-text" for="formularioVentaTotal">Monto Total</label><br>
+            <input formControlName="formularioVentaTotal" name="formularioVentaTotal"
+              [class.is-invalid]="contactFormVenta.get('formularioVentaTotal').invalid && contactFormVenta.get('formularioVentaTotal').touched"
+              type="number" id="formularioVentaTotal" class="formulario-input bg-light form-control" required
+              formControlName="formularioVentaTotal" />
+            <div
+              *ngIf="contactFormVenta.get('formularioVentaTotal')?.touched && contactFormVenta.get('formularioVentaTotal')?.errors?.['required'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de monto total es obligatorio</div>
+            <div
+              *ngIf="contactFormVenta.get('formularioVentaTotal')?.touched && contactFormVenta.get('formularioVentaTotal')?.errors?.['minlength'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de monto total debe contener al menos
+              {{contactFormVenta.get('formularioVentaTotal')?.errors?.['minlength'].requiredLength}} cifras</div>
+          </div>
+
+          <div>
+            <label class="form-label display-text" for="formularioVentaProducto">Código de producto</label><br>
+            <input formControlName="formularioVentaProducto" name="formularioVentaProducto"
+              [class.is-invalid]="contactFormVenta.get('formularioVentaProducto').invalid && contactFormVenta.get('formularioVentaProducto').touched"
+              type="text" id="formularioVentaProducto" class="formulario-input bg-light form-control" required
+              formControlName="formularioVentaProducto" />
+            <div
+              *ngIf="contactFormVenta.get('formularioVentaProducto')?.touched && contactFormVenta.get('formularioVentaProducto')?.errors?.['required'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de codigo de producto es obligatorio</div>
+            <div
+              *ngIf="contactFormVenta.get('formularioVentaProducto')?.touched && contactFormVenta.get('formularioVentaProducto')?.errors?.['minlength'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de codigo de producto debe contener al menos
+              {{contactFormVenta.get('formularioVentaProducto')?.errors?.['minlength'].requiredLength}} cifras</div>
+          </div>
+
+          <div>
+            <label class="form-label display-text" for="formularioVentaVendedor">Código de vendedor</label><br>
+            <input formControlName="formularioVentaVendedor" name="formularioVentaVendedor"
+              [class.is-invalid]="contactFormVenta.get('formularioVentaVendedor').invalid && contactFormVenta.get('formularioVentaVendedor').touched"
+              type="text" id="formularioVentaVendedor" class="formulario-input bg-light form-control" required
+              formControlName="formularioVentaVendedor" />
+            <div
+              *ngIf="contactFormVenta.get('formularioVentaVendedor')?.touched && contactFormVenta.get('formularioVentaVendedor')?.errors?.['required'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de codigo de vendedor es obligatorio</div>
+            <div
+              *ngIf="contactFormVenta.get('formularioVentaVendedor')?.touched && contactFormVenta.get('formularioVentaVendedor')?.errors?.['minlength'] "
+              class="alert alert-danger formulario-error mt-3">*El campo de codigo de vendedor debe contener al menos
+              {{contactFormVenta.get('formularioVentaVendedor')?.errors?.['minlength'].requiredLength}} cifras</div>
+          </div>
+
+          <button (click)="onSubmitVenta()" [swal]="['Hecho!', 'Has registrado una venta!', 'success']"
+            [disabled]="contactFormVenta.invalid" type="submit" id="enviarFormulario"
+            class="btn btn-warning btn-block btn-lg mb-4 mt-4">Registrar venta</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

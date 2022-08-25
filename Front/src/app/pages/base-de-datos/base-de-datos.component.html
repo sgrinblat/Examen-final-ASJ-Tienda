@@ -1,0 +1,69 @@
+<div class="container">
+  <h1 class="text-center display-text pt-5">Vista privada de productos, vendedores y ventas registradas</h1>
+</div>
+<div class="container">
+  <h2 class="text-center display-text mt-4 mb-4">Lista de vendedores</h2>
+  <table class="table table-striped mb-4">
+    <thead class="table">
+      <tr>
+        <th class="display-text">Código de Vendedor</th>
+        <th class="display-text">Nombre y Apellido</th>
+        <th class="display-text">Sueldo básico</th>
+        <th class="display-text">Comisión acumulada</th>
+        <th class="display-text">Sueldo total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let vendedor of vendedores">
+        <td class="display-text">{{vendedor.vendedorCodigo}}</td>
+        <td class="display-text">{{vendedor.vendedorNombre}}</td>
+        <td class="display-text">{{vendedor.vendedorSueldoBasico}}</td>
+        <td class="display-text">{{vendedor.vendedorComision}}</td>
+        <td class="display-text">{{vendedor.vendedorSueldoTotal}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br><br><br><br>
+  <h2 class="text-center display-text mt-4 mb-4">Lista de productos</h2>
+  <table class="table table-striped mb-4">
+    <thead class="table">
+      <tr>
+        <th class="display-text">Código de Producto</th>
+        <th class="display-text">Nombre</th>
+        <th class="display-text">Precio</th>
+        <th class="display-text">Categoría</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let producto of productos">
+        <td class="display-text">{{producto.productoCodigo}}</td>
+        <td class="display-text">{{producto.productoNombre}}</td>
+        <td class="display-text">{{producto.productoPrecio}}</td>
+        <td class="display-text">{{producto.productoCategoria}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <br><br><br><br>
+  <h2 class="text-center display-text mt-4 mb-4">Lista de ventas registradas</h2>
+  <table class="table table-striped mb-4">
+    <thead class="table">
+      <tr>
+        <th class="display-text">Código de Venta</th>
+        <th class="display-text">Cantidad</th>
+        <th class="display-text">Total</th>
+        <th class="display-text">Código de Producto</th>
+        <th class="display-text">Código de Vendedor</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let venta of ventas">
+        <td class="display-text">{{venta.facturaCodigo}}</td>
+        <td class="display-text">{{venta.facturaCantidad}}</td>
+        <td class="display-text">{{venta.facturaTotal}}</td>
+        <td class="display-text">{{venta.facturaProducto}}</td>
+        <td class="display-text">{{venta.facturaVendedor}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br><br>

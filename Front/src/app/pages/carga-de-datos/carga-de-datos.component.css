@@ -1,0 +1,16 @@
+.formulario {
+  padding: 60px 0 60px 0;
+  text-align: center;
+}
+
+.formulario-input {
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #f8a724;
+  border-radius: 0%;
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding: 20px 0 20px 10px;
+  height: 20px;
+}

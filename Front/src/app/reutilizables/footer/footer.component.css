@@ -1,0 +1,16 @@
+.logo-asj{
+  max-height: 100px;
+  margin-top: 10px;
+  margin-bottom: 40px;
+}
+
+.logo-asj:hover {
+  filter: hue-rotate(85deg) brightness(500%);
+}
+
+a:hover {
+  color: #f8a724 !important;
+  font-weight: bold;
+}
+
+

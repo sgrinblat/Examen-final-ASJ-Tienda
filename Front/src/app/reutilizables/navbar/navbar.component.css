@@ -1,0 +1,22 @@
+.top-5 {
+  top: 5px;
+}
+
+.fondo-header {
+  background-color: #212529;
+}
+
+a:hover {
+  color: #f8a724 !important;
+  font-weight: bold;
+}
+
+.logo-asj {
+  max-height: 120px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.logo-asj:hover {
+  filter: invert(15%);
+}
